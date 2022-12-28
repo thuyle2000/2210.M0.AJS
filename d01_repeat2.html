@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>repeat-ajs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/angular.min.js"></script>
+</head>
+
+<body ng-app="myAPP">
+    <div class="container" ng-controller="ctModule">
+        <h2>ng-repeat demo</h2>
+        <hr>
+        <p>List of Modules</p>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Hours</th>
+                    <th>Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="mh in modules">
+                    <td>{{mh.id}}</td>
+                    <td>{{mh.name}}</td>
+                    <td>{{mh.hours}}</td>
+                    <td>{{mh.fee}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <script>
+        //1. khoi tao bien [myAPP]
+        let myAPP = angular.module("myAPP", []);
+
+        //2. lap trinh cho controller [ctModule]
+        myAPP.controller("ctModule", function ($scope) {
+            $scope.modules = [
+                { "id": "LBEL", "name": "Logic C Programming", "hours": 60, "fee": 210 },
+                { "id": "HCJS", "name": "HTML5, CSS3 & JS", "hours": 64, "fee": 250 },
+                { "id": "AJS", "name": "AngularJS & Angular", "hours": 20, "fee": 110 },
+                { "id": "PRJ1", "name": "eProject Semester 1", "hours": 40, "fee": 300 }
+            ];
+        });
+    </script>
+</body>
+
+</html>

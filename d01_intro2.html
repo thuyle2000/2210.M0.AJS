@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>angular-js</title>
+    <script src="js/angular.min.js"></script>
+</head>
+<body>
+    <h2>Demo AngularJS</h2>
+    <hr>
+    <div ng-app="myAPP" ng-controller="myCONTROL">
+        <input type="text" ng-model="user" placeholder="nhap ho ten"> <br><br>
+        {{"Hello " + user}}
+    </div>
+
+    <script>
+        //1. khai bao bien [app] dai dien cho ung dung AJS
+        let app = angular.module("myAPP", []);
+
+        //2. lap trinh cho controller [myCONTROL]
+        app.controller("myCONTROL", function($scope){
+            $scope.user ="Nguyen Anh Duy";
+        });
+    </script>
+</body>
+</html>
