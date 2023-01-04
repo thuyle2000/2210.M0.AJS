@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myAPP">
+    <div class="container" ng-controller="conSearch">
+        <h2>Search Filter-Sort Demo</h2>
+        <hr>
+        Enter name: 
+        <input type="text" name="" ng-model="srName"> - 
+        Sorted by:
+        <select name="" ng-model="fsort">
+            <option>id</option>
+            <option>name</option>
+            <option>gender</option>
+            <option>mark</option>
+        </select>
+
+        <table class="table table-hover table-striped">    
+            <thead>
+                <tr>
+                    <th>sr.no</th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>gender</th>
+                    <th>final mark</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in ds | filter:{name:srName} | orderBy:fsort ">
+                    <td>{{$index+1}}</td>
+                    <td>{{x.id}}</td>
+                    <td>{{x.name}}</td>
+                    <td>{{x.gender}}</td>
+                    <td>{{x.mark}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        //1. khoi tao ung angularjs
+        let app = angular.module("myAPP",[]);
+
+        //2.lap trinh cho controller [conSearch]
+        app.controller("conSearch", function($scope){
+            //2.1 khai bao va khoi tao mang json chua ds sinh vien bao gom id, name, gender va mark
+            $scope.ds = [
+            {"id":"s01","name":"nguyen huu kien","gender":"nam","mark":75},
+            {"id":"s02","name":"do ngoc duy","gender":"nam","mark":57},
+            {"id":"s03","name":"Tran thi diem quynh","gender":"nu","mark":69},
+            {"id":"s04","name":"pham thi diem my","gender":"nu","mark":96},
+            {"id":"s05","name":"ho duy khang","gender":"nam","mark":40},
+            {"id":"s06","name":"tran thien nhan","gender":"nam","mark":88},
+            {"id":"s07","name":"huynh tan anh","gender":"nam","mark":55},
+            {"id":"s08","name":"dang nguyen thien khanh","gender":"nu","mark":66}
+            ];
+
+            //2.2 khai bao va khoi tao bien fsort
+            $scope.fsort="id";
+        });
+    </script>
+
+</body>
+</html>
