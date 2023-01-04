@@ -20,17 +20,51 @@
     </style>
 </head>
 
-<body ng-app>
-    <div class="container">
-        <h2>AJS Filter Number</h2>
+<body ng-app="myAPP">
+    <div class="container" ng-controller="demo">
+        <h2>AJS Filter Number/Currency/Date</h2>
         <hr>
         Enter amount: 
-        <input type="number" ng-model="num" ng-init="num=12345" > <br> <br>
+        <input type="number" ng-model="num"  > <br> <br>
 
         amount | number  <span> {{num|number}}  </span><br>
-        amount | number:2 <span>{{num|number:2}} </span><br>
-        amount | number:2 <span>{{num|number:4}} </span><br>
+        amount | number : 2 <span>{{num|number:2}} </span><br>
+        amount | number : 2 <span>{{num|number:4}} </span><br> <br>
 
+        amount | currency <span>{{num|currency}} </span><br>
+        amount | currency : vnd <span>{{num|currency:'vnd '}} </span><br>
+        amount | currency : vnd : 0 <span>{{num|currency:'vnd ':0}} </span><br> <br>
+        
+        <hr>
+        Enter your date:
+        <input type="date" name="" ng-model="today"> <br><br>
+        Default Date: <span> {{today|date}}</span><br>
+        Short: <span> {{today|date:'short'}}</span><br>
+        Medium: <span> {{today|date:'medium'}}</span><br>
+        Short Date: <span> {{today|date:'shortDate'}}</span><br>
+        Medium Date: <span> {{today|date:'mediumDate'}}</span><br>
+        Long Date: <span> {{today|date:'longDate'}}</span><br>
+        Full Date: <span> {{today|date:'fullDate'}}</span><br>
+
+        Year: <span> {{today|date:'yyyy'}}</span><br>
+        Month: <span> {{today|date:'MMMM'}}</span><br>
+        Day: <span> {{today|date:'dd'}}</span><br>
+
+        Short Time: <span> {{today|date:'shortTime'}}</span><br>
+        Medium Time: <span> {{today|date:'mediumTime'}}</span><br>
     </div>
+
+
+    <script>
+        //khoi tao module angularjs co ten [myAPP]
+        let app = angular.module("myAPP",[]);
+        
+        //lap trinh cho controller demo
+        app.controller("demo", function($scope) {
+            $scope.num = 12345;
+            $scope.today = new Date();
+        });
+
+    </script>
 </body>
 </html>
