@@ -1,0 +1,12 @@
+{
+  "students": [
+    { "id": "s01", "name": "nguyen huu kien", "gender": "nam", "mark": 75 },
+    { "id": "s02", "name": "do ngoc duy", "gender": "nam", "mark": 57 },
+    { "id": "s03", "name": "Tran thi diem quynh", "gender": "nu", "mark": 69 },
+    { "id": "s04", "name": "pham thi diem my", "gender": "nu", "mark": 96 },
+    { "id": "s05", "name": "ho duy khang", "gender": "nam", "mark": 40 },
+    { "id": "s06", "name": "tran thien nhan", "gender": "nam", "mark": 88 },
+    { "id": "s07", "name": "huynh tan anh", "gender": "nam", "mark": 55 },
+    { "id": "s08", "name": "dang nguyen thien khanh", "gender": "nu", "mark": 66 }
+  ]
+}

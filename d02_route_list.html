@@ -1,2 +1,29 @@
 <h2>Student List</h2>
 <hr>
+<div class="container" ng-controller="conSearch">
+
+    Enter name:
+    <input type="text" name="" ng-model="srName"> <br><br>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>sr.no</th>
+                <th>id</th>
+                <th>name</th>
+                <th>gender</th>
+                <th>final mark</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in ds | filter:{name:srName} ">
+                <td>{{$index+1}}</td>
+                <td>{{x.id}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.gender}}</td>
+                <td>{{x.mark}}</td>
+                <td><button type="button" class="btn btn-success" ng-click="remove(x.id)"> delete </button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

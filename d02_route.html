@@ -14,7 +14,7 @@
 
     <style>
         nav {
-            margin: 10px;
+            margin: 10px 0px;
             background-color: antiquewhite;
             padding: 10px;
         }
@@ -33,11 +33,15 @@
             padding: 15px;
             text-align: center;
         }
+
+        h2 {
+            color: red;
+        }
     </style>
 </head>
 
 <body ng-app="myAPP">
-    <div class="container" >
+    <div class="container">
         <!-- menu -->
         <nav>
             <a href="#/!">home</a>
@@ -84,6 +88,38 @@
                     templateUrl: "d02_route_contact.html"
                 });
         });
+
+        app.run(function ($rootScope, $http) {
+            $rootScope.ds = [];
+
+            $http.get("student_list.json").then(function (r) {
+                $rootScope.ds = r.data.students;
+            }
+            );
+        });
+
+
+        app.controller("conSearch", function ($scope) {
+            $scope.remove = function (id) {
+                if (confirm("Are u sure ?")) {
+
+                    let index = -1;
+
+                    $scope.ds.forEach((sv, i) => {
+                        if (sv.id == id) {
+                            index = i;
+                        }
+                    });
+
+                    if (index >= 0) {
+                        $scope.ds.splice(index, 1);
+                    }
+                }
+
+            }
+        });
+
+
 
     </script>
 </body>
