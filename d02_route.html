@@ -120,6 +120,24 @@
         });
 
 
+        app.controller("conAdd", function ($scope) {
+            $scope.gender = "nam";
+            
+            $scope.addStudent = function () {
+                let sv = {
+                    "id": $scope.id,
+                    "name": $scope.name,
+                    "gender": $scope.gender,
+                    "mark": $scope.mark
+                };
+
+                $scope.ds.push(sv);
+
+                alert(" Add new Student successfully ! !")
+            }
+
+        });
+
 
     </script>
 </body>

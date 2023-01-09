@@ -1,7 +1,7 @@
 <h2>Insert New Student</h2>
 <hr>
-<div class="container">
-    <form name="formSV">
+<div class="container" ng-controller="conAdd">
+    <form name="formSV" ng-submit="addStudent()">
         <div class="form-group">
             <label>ID</label>
             <input type="text" class="form-control" id="id" name="id" pattern="s\d{2}" ng-model="id" required>
@@ -21,11 +21,11 @@
         <div>
             <label for="">Gender</label> <br>
             <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input" name="gender" value="nam" checked>
+                <input type="radio" class="form-check-input" name="gender" value="nam" ng-model="gender">
                 <label class="form-check-label">nam</label>
             </div>
             <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input" name="gender" value="nu">
+                <input type="radio" class="form-check-input" name="gender" value="nu" ng-model="gender">
                 <label class="form-check-label">nu</label>
             </div>
         </div>
@@ -41,5 +41,5 @@
         <br>
         <button type="submit" class="btn btn-info" ng-disabled="formSV.$invalid">Submit</button>
     </form>
-    
+
 </div>
