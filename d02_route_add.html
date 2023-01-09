@@ -1,2 +1,45 @@
 <h2>Insert New Student</h2>
 <hr>
+<div class="container">
+    <form name="formSV">
+        <div class="form-group">
+            <label>ID</label>
+            <input type="text" class="form-control" id="id" name="id" pattern="s\d{2}" ng-model="id" required>
+
+            <span class="error" ng-show="formSV.id.$error.required">Required /</span>
+            <span class="error" ng-show="formSV.id.$invalid">Student code: s[xx]</span>
+        </div>
+
+        <div class="form-group">
+            <label>Full name</label>
+            <input type="text" class="form-control" id="name" name="name" ng-model="name" required>
+
+            <span class="error" ng-show="formSV.name.$error.required">Required</span>
+        </div>
+
+
+        <div>
+            <label for="">Gender</label> <br>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="gender" value="nam" checked>
+                <label class="form-check-label">nam</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="gender" value="nu">
+                <label class="form-check-label">nu</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Final mark</label>
+            <input type="number" class="form-control" id="mark" name="mark" ng-model="mark" min="0" max="100" required>
+
+            <span class="error" ng-show="formSV.mark.$error.required">Required / </span>
+            <span class="error" ng-show="formSV.mark.$invalid"> [0-100] </span>
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-info" ng-disabled="formSV.$invalid">Submit</button>
+    </form>
+    
+</div>
